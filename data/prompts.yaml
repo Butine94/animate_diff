@@ -1,0 +1,11 @@
+# Example prompt file for animatediff-pipeline
+# Each entry can be a plain string or a dict.
+# Dicts support an optional "method" key: animatediff (default) or sd_still.
+# Use sd_still for static close-ups or detail inserts where motion isn't needed.
+
+shots:
+  - "a steam train cuts across the Nevada desert at golden hour, wide establishing shot, cinematic western"
+  - "dust clouds trail behind the locomotive, slow pan across vast empty plains, warm amber light"
+  - "a weathered cowboy watches from a ridge as the train passes below, medium shot, western"
+  - "the train engine pushes forward through shimmering heat haze, low angle tracking shot, desert western"
+  - "the train disappears into the distance, endless desert and mountains, wide shot, golden hour"

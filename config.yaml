@@ -1,0 +1,46 @@
+# AnimateDiff Pipeline — Configuration
+
+diffusion:
+  base_model: "runwayml/stable-diffusion-v1-5"
+  dtype: "fp16"
+  seed: 42
+  height: 512
+  width: 512
+
+animation:
+  motion_module: "guoyww/animatediff-motion-adapter-v1-5-2"
+  num_frames: 16
+  fps: 8
+  guidance_scale: 7.5
+  num_inference_steps: 25
+
+sd:
+  num_inference_steps: 30
+  guidance_scale: 7.5
+
+character:
+  use_ip_adapter: false
+  ip_adapter_model: "h94/IP-Adapter"
+  ip_adapter_weight: "ip-adapter-plus_sd15.bin"
+  reference_image: "./references/character.png"
+  scale: 0.7
+
+style:
+  base_prompt: "cinematic, 35mm film, golden hour, dusty, wide open landscape"
+  negative_prompt: >
+    blurry, watermark, deformed, low quality, duplicate,
+    flickering, morphing, unstable frames, night, dark, noir
+
+generation:
+  max_shots: 5
+  prompts_path: "./data/prompts.yaml"
+  fallback_prompts:
+    - "a lone figure walks through fog at dawn"
+    - "close-up of hands turning pages of an old book"
+    - "city skyline at dusk, lights flickering on"
+    - "slow push down a long corridor toward a glowing door"
+    - "overhead shot of rain hitting a puddle in an empty street"
+
+output:
+  directory: "./outputs"
+  final_fps: 8
