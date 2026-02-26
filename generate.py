@@ -48,10 +48,6 @@ def build_parser() -> argparse.ArgumentParser:
                    help="YAML or plain-text prompt file (overrides config).")
     p.add_argument("--prompt", default=None, metavar="TEXT",
                    help="Single prompt — generates one shot.")
-    p.add_argument("--reference", default=None, metavar="PATH",
-                   help="Character reference image for IP-Adapter.")
-    p.add_argument("--output", default=None, metavar="DIR",
-                   help="Output directory.")
     p.add_argument("--num-shots", type=int, default=None, metavar="N",
                    help="Cap on number of shots.")
     p.add_argument("--fps", type=int, default=None, metavar="N",
@@ -85,8 +81,6 @@ def main() -> None:
         config["output"]["directory"] = args.output
     if args.fps is not None:
         config["animation"]["fps"] = args.fps
-    if args.reference is not None:
-        config["character"]["reference_image"] = args.reference
         config["character"]["use_ip_adapter"] = True
 
     output_dir = config["output"]["directory"]
